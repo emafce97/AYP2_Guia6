@@ -1,0 +1,19 @@
+    /**
+     * Unir el contenido de dos de dos colas
+     * @param c1
+     * @param c2
+     * @return
+     */
+    public static int[] unirColas(Queue<Integer> c1, Queue<Integer> c2){
+        int[] union = new int[c1.size() + c2.size()];
+        int i = 0;
+        while(!c1.isEmpty()){
+            union[i] = c1.poll();
+            i++;
+        }
+        while(!c2.isEmpty()){
+            union[i] = c2.poll();
+            i++;
+        }
+        return union;
+    }
