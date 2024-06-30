@@ -1,0 +1,22 @@
+    /**
+     * Escribir un programa que lee una secuencia de caracteres y los imprime en orden inverso.
+     * @param c
+     * @return
+     */
+    public static char[] ej1(char[] c){
+        Stack<Character> pila = new Stack<>();
+        for (char value : c) {
+            pila.add(value);
+        }
+        char[] cNueva = new char[c.length];
+        for(int i=0;i<c.length;i++){
+            cNueva[i]=pila.pop();
+        }
+        return cNueva;
+    }
+
+    public static void listar(char[] arreglo){
+        for(char c : arreglo){
+            System.out.print(c + " ");
+        }
+    }
