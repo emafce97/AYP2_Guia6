@@ -1,0 +1,14 @@
+/**
+     * Verifica si una palabra es palíndromo (es decir que una cadena es igual a su inversa)
+     */
+    public static boolean esPalindromo(String palabra){
+        Stack<Character> pila = new Stack<>();
+        for(Character c : palabra.toLowerCase().toCharArray()){
+            pila.add(c);
+        }
+        String pRevez = "";
+        for(int i=0;i<palabra.length();i++){
+            pRevez += pila.pop();
+        }
+        return palabra.equals(pRevez);
+    }
