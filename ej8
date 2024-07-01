@@ -1,0 +1,62 @@
+public class Cliente implements Comparable<Cliente>{
+
+    private String nombre, apellido, telefono;
+    private int edad;
+
+    public Cliente(String nombre, String apellido, String telefono, int edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.edad = edad;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public String toString(){
+        return String.format("Nombre: %s - Apellido: %s - Telefono: %s - Edad: %d años",this.nombre,this.apellido,this.telefono,this.edad);
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+        if(this.apellido.equals(o.getApellido())){
+            return this.nombre.compareTo(o.getNombre());
+        }else{
+            return this.apellido.compareTo(o.getApellido());
+        }
+    }
+}
+
+public class Programa {
+
+    private List<Cliente> clientes;
+
+    public Programa(){
+        this.clientes = new ArrayList<>();
+    }
+
+    public void agregar(Cliente... clientes){
+        for(Cliente c : clientes){
+            this.clientes.add(c);
+        }
+    }
+
+    public void listar(){
+        for(Cliente c : this.clientes){
+            System.out.println(c);
+        }
+    }
+
+    public void ordenar(){
+        Collections.sort(this.clientes);
+    }
+}
