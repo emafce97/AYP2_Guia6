@@ -1,0 +1,26 @@
+    /**
+     * Evalúa si una cadena de paréntesis, corchetes y llaves está bien balanceada
+     * @param cadena
+     * @return
+     */
+    public static boolean ej4(String cadena) {
+        Stack<Character> pila = new Stack<>();
+        for (Character c : cadena.toCharArray()) {
+            if (pila.isEmpty() || getInverso(pila.peek()) != c) {
+                pila.add(c);
+            } else {
+                pila.pop();
+            }
+        }
+        return pila.isEmpty();
+    }
+
+    public static char getInverso(char c){
+        if(c == '{'){
+            return '}';
+        }else if(c == '('){
+            return ')';
+        }else{
+            return ']';
+        }
+    }
