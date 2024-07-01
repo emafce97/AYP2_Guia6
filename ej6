@@ -1,0 +1,22 @@
+    /**
+     * Verifica si una cadena de dos palabras contiene la inversa de la otra
+     * @param cadena
+     * @return
+     * @throws Exception
+     */
+    public static boolean tieneInverso(String cadena) throws Exception{
+        String[] palabras = cadena.split(" ");
+        if(palabras.length != 2){
+            throw new Exception("La palabra no tiene inversa o esta vacia!");
+        }else{
+            return palabras[0].equals(getInverso(palabras[1]));
+        }
+    }
+
+    public static String getInverso(String palabra){
+        String inverso = "";
+        for(int i=palabra.length()-1; i>=0; i--){
+            inverso += palabra.charAt(i);
+        }
+        return inverso;
+    }
