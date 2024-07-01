@@ -1,0 +1,31 @@
+    /**
+     * Unir los elementos de dos listas, respetando un orden natural
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public static List<Integer> unir(List<Integer> l1, List<Integer> l2){
+        List<Integer> l3 = new ArrayList<>();
+        int c1 = 0;
+        int c2 = 0;
+        while(c1 < l1.size() && c2 < l2.size()){
+            int num1 = l1.get(c1);
+            int num2 = l2.get(c2);
+            if(num1<=num2){
+                l3.add(num1);
+                c1++;
+            }else{
+                l3.add(num2);
+                c2++;
+            }
+        }
+        while(c1 < l1.size()){
+            l3.add(l1.get(c1));
+            c1++;
+        }
+        while(c2<l2.size()){
+            l3.add(l2.get(c2));
+            c2++;
+        }
+        return l3;
+    }
