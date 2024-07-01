@@ -1,0 +1,30 @@
+/**
+     * Verifica si una lista contiene una sublista
+     * @param l
+     * @param sl
+     * @return
+     * @throws Exception
+     */
+    public static boolean esSublista(List<Integer> l, List<Integer> sl) throws Exception{
+        if(l.size() < sl.size()) {
+            throw new Exception("La lista es menor que la sublista!");
+        }else if(l.isEmpty() || sl.isEmpty()){
+            throw new Exception("Alguna de las listas esta vacia!");
+        }else{
+            int c1 = 0;
+            int c2 = 0;
+            int coincidiencias = 0;
+            while(c1 < l.size() && c2 < sl.size()) {
+                if (l.get(c1) == sl.get(c2)) {
+                    c1++;
+                    c2++;
+                    coincidiencias++;
+                } else {
+                    c1++;
+                    c2 = 0;
+                    coincidiencias = 0;
+                }
+            }
+            return coincidiencias == sl.size();
+        }
+    }
