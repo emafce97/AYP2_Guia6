@@ -1,0 +1,16 @@
+    /**
+     * Verifica si existe la suma de los elementos dentro de la lista
+     * @param nums
+     * @return
+     */
+    public static boolean haySuma(List<Integer> nums){
+        for(int i=0; i < nums.size() - 1; i++){
+            int suma = nums.get(i) + nums.get(i+1);
+            for(int j=0; j < nums.size(); j++){
+                if(nums.get(j) == suma){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
