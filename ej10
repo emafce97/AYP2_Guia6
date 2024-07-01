@@ -1,0 +1,18 @@
+    /**
+     * Se obtiene el inverso de una lista de valores
+     * @param nums
+     * @return
+     */
+    public static List<Integer> getInverso(List<Integer> nums){
+        List<Integer> inverso = new ArrayList<>();
+        for(int i= nums.size()-1; i >=0; i--){
+            inverso.add(nums.get(i));
+        }
+        return inverso;
+    }
+
+    public static void listar(List<Integer> nums){
+        for(int num : nums){
+            System.out.print(num + " ");
+        }
+    }
