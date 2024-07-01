@@ -1,0 +1,38 @@
+    /**
+     * Obtener una formula a partir de una notacion polaca
+     * @param notacion
+     * @return
+     */
+ public static String getFormula(String notacion){
+        Queue<String> numeros = new ArrayDeque<>();
+        Stack<String> operadores = new Stack<>();
+        for(String c : notacion.split(" ")){
+            if(!esOperador(c)){
+                numeros.add(c);
+            }else{
+                operadores.add(c);
+            }
+        }
+        String formula = "";
+        while(!operadores.isEmpty()){
+            formula += numeros.poll() + " ";
+            formula += operadores.pop() + " ";
+            if(operadores.isEmpty()){
+                formula += numeros.poll();
+            }
+        }
+        return formula;
+    }
+
+    public static boolean esOperador(String c){
+        return c.equals("+") || c.equals("-") || c.equals("*") || c.equals("/");
+    }
+
+    public static int calcular(String signo, int a, int b){
+        return switch (signo) {
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            default -> a / b;
+        };
+    }
