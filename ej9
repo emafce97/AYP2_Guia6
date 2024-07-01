@@ -1,0 +1,21 @@
+    /**
+     * Elimina los elementos duplicados de una lista
+     * @param nums
+     * @return
+     */
+    public static List<Integer> eliminarDuplicados(List<Integer> nums){
+        for(int j = 0; j < nums.size() - 1; j++){
+            for(int i= j + 1 ; i < nums.size(); i++){
+                if(nums.get(j) == nums.get(i)){
+                    nums.remove(i);
+                }
+            }
+        }
+        return nums;
+    }
+
+    public static void listar(List<Integer> nums){
+        for(Integer num : nums){
+            System.out.print(num + " ");
+        }
+    }
